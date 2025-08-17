@@ -15,6 +15,17 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
-        run: cd ${{ matrix.dir }} && npm ci
+        run: |
+          cd ${{ matrix.dir }}
+          npm ci
+          npm install eslint@latest --save-dev
+          npm install @eslint/object-schema @eslint/config-array --save-dev
+          npm install rimraf@latest glob@latest --save-dev
+          if [ "${{ matrix.dir }}" = "frontend" ]; then
+            npm install swr
+          fi
+          if [ "${{ matrix.dir }}" = "backend" ]; then
+            npm install --save-dev @types/pg @types/cors
+          fi
       - name: Run ESLint
-        run: cd ${{ matrix.dir }} && npm  run lint
+        run: cd ${{ matrix.dir }} && npm run lint
