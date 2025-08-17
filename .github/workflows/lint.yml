@@ -17,7 +17,6 @@ jobs:
       - name: Install dependencies
         run: |
           cd ${{ matrix.dir }}
-          npm install
           npm ci
           npm install --save-dev eslint@latest prettier@latest @eslint/js globals eslint-config-prettier eslint-plugin-prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin
           if [ "${{ matrix.dir }}" = "frontend" ]; then
