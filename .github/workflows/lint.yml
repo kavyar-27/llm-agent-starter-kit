@@ -1,0 +1,31 @@
+name: Node.js CI
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir: [backend, frontend]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: |
+          cd ${{ matrix.dir }}
+          npm ci
+          npm install --save-dev eslint@latest prettier@latest @eslint/js globals eslint-config-prettier eslint-plugin-prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin
+          if [ "${{ matrix.dir }}" = "frontend" ]; then
+            npm install swr --save
+          fi
+          if [ "${{ matrix.dir }}" = "backend" ]; then
+            npm install --save-dev @types/pg @types/cors
+          fi
+      - name: Run ESLint
+        run: cd ${{ matrix.dir }} && npm run lint
+      - name: Check Prettier
+        run: cd ${{ matrix.dir }} && npm run format:check
