@@ -1,0 +1,20 @@
+name: Node.js Lint
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir: [backend, frontend]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: cd ${{ matrix.dir }} && npm ci
+      - name: Run ESLint
+        run: cd ${{ matrix.dir }} && npm  run lint
