@@ -18,7 +18,7 @@ jobs:
         run: |
           cd ${{ matrix.dir }}
           npm ci
-          npm install eslint@latest --save-dev
+          npm install eslint@8.57.0 --save-dev
           npm install @eslint/object-schema @eslint/config-array --save-dev
           npm install rimraf@latest glob@latest --save-dev
           if [ "${{ matrix.dir }}" = "frontend" ]; then
