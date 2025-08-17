@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/pg": "^8.15.5"
+  },
+  "dependencies": {
+    "swr": "^2.3.6"
+  }
+}

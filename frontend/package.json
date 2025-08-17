@@ -1,0 +1,27 @@
+{
+  "name": "agent-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.2.31",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "swr": "^2.3.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/node": "^20.11.30",
+    "@types/pg": "^8.15.5",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.4",
+    "typescript": "^5.4.5"
+  }
+}

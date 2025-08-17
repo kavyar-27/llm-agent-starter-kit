@@ -1,0 +1,6 @@
+pclass,survived,name,sex,age,sibsp,parch,ticket,fare,cabin,embarked
+1,1,"Cumings, Mrs. John Bradley (Florence Briggs Thayer)",female,38,1,0,PC 17599,71.2833,C85,C
+3,1,"Heikkinen, Miss. Laina",female,26,0,0,STON/O2. 3101282,7.925,,S
+3,0,"Allen, Mr. William Henry",male,35,0,0,373450,8.05,,S
+1,1,"Futrelle, Mrs. Jacques Heath (Lily May Peel)",female,35,1,0,113803,53.1,C123,S
+3,0,"Moran, Mr. James",male,,0,0,330877,8.4583,,Q
